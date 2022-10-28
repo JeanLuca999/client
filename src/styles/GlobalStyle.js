@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   *, *::after, *::before {
     padding: 0;
     margin: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
   }
 
   /* http://meyerweb.com/eric/tools/css/reset/ 
