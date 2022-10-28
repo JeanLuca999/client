@@ -1,7 +1,7 @@
 //COMPONENTS
 import { BannerForm } from "../../components/BannerForm";
 
-//STLYES
+//STYLES
 import { Box, Center, Grid } from "../../styles/generics";
 import { Anchor, Field, Form, Input, Label, Submit } from "../../styles/form";
 
