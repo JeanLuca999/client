@@ -22,12 +22,12 @@ export const CreateAccount = () => {
 
         <Field>
           <Label>Senha</Label>
-          <Input type="text" />
+          <Input type="password" />
         </Field>
 
         <Field>
           <Label>Confirmar Senha</Label>
-          <Input type="text" />
+          <Input type="password" />
         </Field>
       </Form>
     </Grid>
