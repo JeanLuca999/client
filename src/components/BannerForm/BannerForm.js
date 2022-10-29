@@ -4,13 +4,11 @@ import { Image, Wrapper, Title } from "./styles";
 //IMAGES
 import bannerSource from "../../assets/images/banner-form.png";
 
-export const BannerForm = () => {
+export const BannerForm = ({ children }) => {
   return (
     <Wrapper>
       <Image alt="banner" src={bannerSource} />
-      <Title>
-        Crie sua conta para <br /> começar
-      </Title>
+      <Title>{children}</Title>
     </Wrapper>
   );
 };
