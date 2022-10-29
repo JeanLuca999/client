@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const handleLogout = () => {};
 
   const value = {
-    isUserLogged: false,
+    isUserLogged: true,
     user: user,
     handleLogin: handleLogin,
     handleLogout: handleLogout,
