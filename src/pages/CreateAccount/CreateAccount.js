@@ -63,7 +63,9 @@ export const CreateAccount = () => {
 
   return (
     <Grid>
-      <BannerForm />
+      <BannerForm>
+        Crie sua conta para <br /> começar
+      </BannerForm>
       <Center vertically>
         <Box width="90%" maxWidth="500px" margin="0 auto">
           <Form
