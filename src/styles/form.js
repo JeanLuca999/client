@@ -8,7 +8,7 @@ export const Field = styled.fieldset`
   position: relative;
   border: 1px solid #838383;
   border-radius: 5px;
-  margin: 2rem 0;
+  margin-top: 2rem;
 `;
 
 export const Label = styled.label`
@@ -37,8 +37,16 @@ export const Submit = styled.button`
   padding: 1rem;
   cursor: pointer;
   font-size: 1rem;
+  margin-top: 1rem;
 `;
 
 export const Anchor = styled(Link)`
   color: #838383;
+`;
+
+export const Error = styled.span`
+  display: block;
+  margin: 10px 0;
+  padding: 0;
+  color: #cc2323;
 `;
