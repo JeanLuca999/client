@@ -14,8 +14,7 @@ export const useForm = (fields) => {
   const [state, setState] = useState(() => mapFields(fields));
   const [errors, setErrors] = useState({});
 
-  const handleChange = useCallback((event) => {
-    const { name, value } = event.target;
+  const handleChange = useCallback((name, value) => {
     setState((prev) => ({ ...prev, [name]: value }));
     setErrors({});
   }, []);
