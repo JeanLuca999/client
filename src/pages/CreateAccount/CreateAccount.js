@@ -25,17 +25,13 @@ import {
 } from "../../helpers";
 
 export const CreateAccount = () => {
-  const [
-    { name, email, password, confirmPassword },
-    handleChange,
-    onSubmit,
-    validations,
-  ] = useForm({
+  const [fields, handleChange, onSubmit, validations] = useForm({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+  const { name, email, password, confirmPassword } = fields;
 
   const handleValidateForm = () => {
     return [
@@ -53,6 +49,11 @@ export const CreateAccount = () => {
         "senha inválida"
       ),
     ];
+  };
+
+  const handleFormFieldChange = (event) => {
+    const { name, value } = event.target;
+    handleChange(name, value);
   };
 
   const handleSubmit = (event) => {
@@ -77,7 +78,7 @@ export const CreateAccount = () => {
                 type="text"
                 name="name"
                 value={name}
-                onChange={handleChange}
+                onChange={handleFormFieldChange}
               />
             </Field>
             {validations?.errors?.name && (
@@ -89,7 +90,7 @@ export const CreateAccount = () => {
                 type="text"
                 name="email"
                 value={email}
-                onChange={handleChange}
+                onChange={handleFormFieldChange}
               />
             </Field>
             {validations?.errors?.email && (
@@ -101,7 +102,7 @@ export const CreateAccount = () => {
                 type="password"
                 name="password"
                 value={password}
-                onChange={handleChange}
+                onChange={handleFormFieldChange}
               />
             </Field>
             {validations?.errors?.password && (
@@ -113,7 +114,7 @@ export const CreateAccount = () => {
                 type="password"
                 name="confirmPassword"
                 value={confirmPassword}
-                onChange={handleChange}
+                onChange={handleFormFieldChange}
               />
             </Field>
             {validations?.errors?.confirmPassword && (
