@@ -14,7 +14,7 @@ const App = () => {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/join" element={<CreateAccount />} />
+            <Route path="/register" element={<CreateAccount />} />
             <Route
               path="/home"
               element={
