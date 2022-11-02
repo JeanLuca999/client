@@ -7,6 +7,7 @@ import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 
 //PAGES
 import { CreateAccount, Login } from "./pages";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="*" element={<h1>Page not found</h1>} />
           </Routes>
         </BrowserRouter>
+        <ToastContainer />
       </AuthProvider>
     </>
   );
