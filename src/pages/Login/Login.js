@@ -1,6 +1,7 @@
 //HOOKS
 import { useForm } from "../../hooks";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/auth";
 
 //COMPONENTS
 import { BannerForm } from "../../components/BannerForm";
@@ -20,7 +21,11 @@ import {
 //HELPERS
 import { validateEmail, validatePassword } from "../../helpers";
 
+//SERVICES
+import { loginUser } from "../../services";
+
 export const Login = () => {
+  const { handleLogin } = useAuth();
   const navigate = useNavigate();
   const [fields, handleChange, onSubmit, validations] = useForm({
     name: "",
@@ -41,10 +46,20 @@ export const Login = () => {
     handleChange(name, value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event?.preventDefault();
-    console.log("post data");
-    navigate("/home");
+
+    const formData = JSON.stringify({ email, password });
+    try {
+      const response = await loginUser(formData);
+      if (response) {
+        const { data: user } = response;
+        handleLogin(user);
+        navigate("/home");
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
