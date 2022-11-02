@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 //COMPONENTS
 import { BannerForm } from "../../components/BannerForm";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //STYLES
 import { Box, Center, Grid } from "../../styles/generics";
@@ -71,8 +73,10 @@ export const CreateAccount = () => {
         const { data: user } = response;
         handleLogin(user);
         navigate("/home");
+        toast.success("Usuário criado com sucesso!");
       }
     } catch (e) {
+      toast.error(e.response.data.detail);
       console.log(e);
     }
   };
