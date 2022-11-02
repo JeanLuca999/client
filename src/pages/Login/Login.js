@@ -5,6 +5,8 @@ import { useAuth } from "../../context/auth";
 
 //COMPONENTS
 import { BannerForm } from "../../components/BannerForm";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //STYLES
 import { Box, Center, Grid } from "../../styles/generics";
@@ -56,8 +58,10 @@ export const Login = () => {
         const { data: user } = response;
         handleLogin(user);
         navigate("/home");
+        toast.success("Login realizado com sucesso!");
       }
     } catch (e) {
+      toast.error(e.response.data.detail);
       console.log(e);
     }
   };
