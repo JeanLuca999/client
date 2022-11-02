@@ -6,8 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 
 //PAGES
-import { CreateAccount } from "./pages/CreateAccount";
-import { Login } from "./pages/Login";
+import { CreateAccount, Login } from "./pages";
 
 const App = () => {
   return (
