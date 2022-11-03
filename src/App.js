@@ -4,10 +4,12 @@ import { AuthProvider } from "./context/auth";
 //COMPONENTS
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
+import { Header } from "./components/Header";
 
 //PAGES
 import { CreateAccount, Login } from "./pages";
 import { ToastContainer } from "react-toastify";
+import { Posts } from "./pages/Posts";
 
 const App = () => {
   return (
@@ -21,10 +23,12 @@ const App = () => {
               path="/home"
               element={
                 <PrivateRoute>
-                  <h1>a protected page</h1>
+                  <Header />
                 </PrivateRoute>
               }
-            />
+            >
+              <Route index element={<Posts />} />
+            </Route>
 
             <Route path="*" element={<h1>Page not found</h1>} />
           </Routes>
