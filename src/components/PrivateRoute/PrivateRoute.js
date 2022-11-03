@@ -8,7 +8,7 @@ export const PrivateRoute = ({ children }) => {
   const { isUserLogged } = useAuth();
 
   if (isUserLogged === false) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/login" replace />;
   }
 
   return children;
