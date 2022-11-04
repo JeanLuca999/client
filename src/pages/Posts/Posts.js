@@ -5,7 +5,6 @@ import { Box } from "../../styles/generics";
 //HOOKS
 import { useForm } from "../../hooks";
 import { validateNotEmpty } from "../../helpers";
-import { Error } from "../../styles/form";
 
 export const Posts = () => {
   const [fields, handleChange, onSubmit, validations] = useForm({
