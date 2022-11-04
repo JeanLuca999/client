@@ -13,3 +13,7 @@ export const validatePassword = (value) => {
 export const validateIsPasswordsEqual = (value, compare) => {
   return value === compare && value !== "";
 };
+
+export const validateNotEmpty = (value) => {
+  return value !== "";
+};
