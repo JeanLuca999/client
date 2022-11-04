@@ -35,3 +35,15 @@ export const Avatar = styled.img`
     height: 55px;
   }
 `;
+
+export const Add = styled.img`
+  display: block;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  pointer-events: none;
+  opacity: 0.6;
+`;
