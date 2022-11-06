@@ -2,13 +2,17 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   position: relative;
-  padding: 2.5rem;
+  padding: 0.75rem;
   border-radius: 5px;
   border: 1px solid #838383;
   width: 90%;
   max-width: 600px;
   margin: 0 auto;
   min-height: 100px;
+
+  @media screen and (min-width: 728px) {
+    padding: 2.5rem;
+  }
 `;
 
 export const Avatar = styled.img`
