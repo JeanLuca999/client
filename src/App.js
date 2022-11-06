@@ -10,6 +10,7 @@ import { Header } from "./components/Header";
 import { CreateAccount, Login } from "./pages";
 import { ToastContainer } from "react-toastify";
 import { Posts } from "./pages/Posts";
+import { UserPosts } from "./pages/UserPosts/UserPosts";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
               }
             >
               <Route index element={<Posts />} />
+              <Route path="posts" element={<UserPosts />} />
             </Route>
 
             <Route path="*" element={<h1>Page not found</h1>} />
