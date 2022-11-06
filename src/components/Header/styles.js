@@ -15,9 +15,13 @@ export const Nav = styled.nav`
 export const Ul = styled.ul`
   position: relative;
   display: flex;
-  column-gap: 2rem;
+  column-gap: 1rem;
   justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: 728px) {
+    column-gap: 2rem;
+  }
 `;
 
 export const Li = styled.li`
@@ -27,6 +31,11 @@ export const Li = styled.li`
 export const Span = styled.span`
   display: block;
   color: #838383;
+  font-size: 0.75rem;
+
+  @media screen and (min-width: 728px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Link = styled(RouterLink)`
@@ -36,8 +45,12 @@ export const Link = styled(RouterLink)`
 export const Image = styled.img`
   width: 100%;
   height: auto;
-  max-width: 35px;
+  max-width: 25px;
   object-fit: contain;
+
+  @media screen and (min-width: 728px) {
+    max-width: 35px;
+  }
 `;
 
 export const Exit = styled.li`
