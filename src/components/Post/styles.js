@@ -21,8 +21,8 @@ export const Avatar = styled.img`
   background-color: #fff;
   display: block;
   position: absolute;
-  top: -5%;
-  left: -5%;
+  top: -10px;
+  left: -10px;
 
   width: 40px;
   height: 40px;
@@ -34,5 +34,7 @@ export const Avatar = styled.img`
   @media screen and (min-width: 728px) {
     width: 55px;
     height: 55px;
+    top: -20px;
+    left: -20px;
   }
 `;
