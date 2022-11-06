@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
 export const Text = styled.p`
   color: #838383;
   font-size: 1rem;
+  line-height: 1.5;
 `;
 
 export const Avatar = styled.img`
