@@ -2,7 +2,7 @@
 import { AuthProvider } from "./context/auth";
 
 //COMPONENTS
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 import { Header } from "./components/Header";
 
@@ -32,7 +32,7 @@ const App = () => {
               <Route path="posts" element={<UserPosts />} />
             </Route>
 
-            <Route path="*" element={<h1>Page not found</h1>} />
+            <Route path="*" element={<Navigate to="/register" replace />} />
           </Routes>
         </BrowserRouter>
         <ToastContainer />
