@@ -16,8 +16,10 @@ import avatar from "../../assets/images/avatar.png";
 
 //SERVICES
 import { createPost, getPosts } from "../../services/posts";
+import { useAuth } from "../../context/auth";
 
 export const Posts = () => {
+  const { user } = useAuth();
   const [posts, setPosts] = useState([]);
   const [fields, handleChange, onSubmit, validations] = useForm({
     content: "",
@@ -38,9 +40,10 @@ export const Posts = () => {
 
   const handlePostSubmit = async () => {
     try {
-      const data = JSON.stringify({ body: content });
+      const data = JSON.stringify({ owner_id: user.id, body: content });
       await createPost(data);
       await fetchPosts();
+      handleChange("content", "");
       toast.success("Post enviado com sucesso");
     } catch (e) {
       console.log(e);
