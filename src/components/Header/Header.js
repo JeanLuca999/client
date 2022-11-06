@@ -26,13 +26,13 @@ export const Header = () => {
       <Nav>
         <Ul>
           <Li>
-            <Link to="/posts">
+            <Link to="/home/posts">
               <Image src={edit} />
               <Span>Postagens</Span>
             </Link>
           </Li>
           <Li>
-            <Link to="/profile">
+            <Link to="/home/profile">
               <Image src={profile} />
               <Span>Perfil</Span>
             </Link>
