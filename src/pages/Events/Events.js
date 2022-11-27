@@ -54,10 +54,12 @@ export const Events = () => {
     }
   };
 
-  const handleUpdateEvent = async (id, data, setData) => {
+  const handleUpdateEvent = async (id, data, setEdit) => {
     try {
       await updateEvent(id, data);
       await fetchEvents();
+      toast.success("Evento atualizado com sucesso!");
+      setEdit(false);
     } catch (e) {
       console.log(e);
     }
@@ -69,8 +71,9 @@ export const Events = () => {
         <Box style={{ borderTop: "1px solid #838383", padding: "7rem 2rem" }}>
           <EditEvent
             key={event.id}
-            event={event}
+            eventData={event}
             handleDeleteEvent={handleDeleteEvent}
+            handleUpdateEvent={handleUpdateEvent}
           />
         </Box>
       );

@@ -13,13 +13,12 @@ import {
   ButtonsContainer,
 } from "./styles";
 
-export const EditEvent = ({ event, handleDeleteEvent }) => {
+export const EditEvent = ({ eventData, handleDeleteEvent, handleUpdateEvent }) => {
   const DEFAULT_FIELDS = {
     title: "",
     description: "",
     date: "",
     location: "",
-    owner_id: "",
   };
 
   const [fields, setFields] = useState(DEFAULT_FIELDS);
@@ -27,13 +26,17 @@ export const EditEvent = ({ event, handleDeleteEvent }) => {
 
   useEffect(() => {
     setFields({
-      title: event.title,
-      description: event.description,
-      date: event.date,
-      location: event.location,
-      owner_id: event.owner_id,
+      title: eventData.title,
+      description: eventData.description,
+      date: eventData.date,
+      location: eventData.location,
     });
-  }, [event]);
+  }, [eventData]);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    handleUpdateEvent(eventData.id, fields, setEdit);
+  };
 
   const handleChange = useCallback((name, value) => {
     setFields((prev) => ({ ...prev, [name]: value }));
@@ -48,18 +51,21 @@ export const EditEvent = ({ event, handleDeleteEvent }) => {
           handleChange={handleChange}
           headerTitle="Editar Evento"
           setEdit={setEdit}
+          onSubmit={handleSubmit}
         />
       )}
 
       {!edit && (
         <Wrapper>
-          <Title>{event.title}</Title>
-          <Info>Descrição: {event.description}</Info>
-          <Info>Local: {event.location}</Info>
-          <Info>Data e Horário: {event.date}</Info>
-          <Info>Organizador: {event.user.name}</Info>
+          <Title>{eventData.title}</Title>
+          <Info>Descrição: {eventData.description}</Info>
+          <Info>Local: {eventData.location}</Info>
+          <Info>Data e Horário: {eventData.date}</Info>
+          <Info>Organizador: {eventData.user.name}</Info>
           <ButtonsContainer>
-            <DeleteButton onClick={() => handleDeleteEvent(event.id)}>Deletar</DeleteButton>
+            <DeleteButton onClick={() => handleDeleteEvent(eventData.id)}>
+              Deletar
+            </DeleteButton>
             <EditButton onClick={() => setEdit(true)}>Editar</EditButton>
           </ButtonsContainer>
         </Wrapper>
