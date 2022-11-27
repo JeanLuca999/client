@@ -67,6 +67,7 @@ export const Events = () => {
 
   const handleEventSubmit = async () => {
     try {
+      console.log(fields);
       const data = JSON.stringify(fields);
       await createEvent(data);
       await fetchEvents();
@@ -74,10 +75,15 @@ export const Events = () => {
       handleChange("description", "");
       handleChange("location", "");
       handleChange("date", "");
+      handleChange("owner_id", "");
       toast.success("Evento criado com sucesso");
     } catch (e) {
       console.log(e);
     }
+  };
+
+  const handleSubmit = (event) => {
+    onSubmit(event, handleEventSubmit);
   };
 
   useEffect(() => {
@@ -90,7 +96,7 @@ export const Events = () => {
         <EventForm
           fields={fields}
           handleChange={handleChange}
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit}
           headerTitle="Criar Evento"
         />
       </Box>
