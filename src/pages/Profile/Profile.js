@@ -36,10 +36,10 @@ export const Profile = () => {
     <>
       <Box maxWidth="900px" margin="0 auto" minHeight="100vh">
         <Box margin="1rem 0" textAlign="center">
-          <Span strong>{user.name}</Span>
+          <Span strong>Usuário - {user.name}</Span>
         </Box>
         <Box margin="1rem 0" textAlign="center">
-          <Span strong>{user.email}</Span>
+          <Span strong>Email - {user.email}</Span>
         </Box>
 
         <Box margin="5rem auto" width="90%">
