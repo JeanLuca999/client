@@ -1,9 +1,23 @@
 // STYLES
 
-import { Wrapper, Form, Title } from "./styles";
-import { Field, Input, Label, Submit } from "../../styles/form";
+import {
+  Wrapper,
+  Form,
+  Title,
+  Submit,
+  ButtonsContainer,
+  DiscardButton,
+} from "./styles";
+import { Field, Input, Label } from "../../styles/form";
 
-export const EventForm = ({ fields, handleChange, onSubmit, headerTitle }) => {
+export const EventForm = ({
+  fields,
+  handleChange,
+  onSubmit,
+  headerTitle,
+  isEdit,
+  setEdit,
+}) => {
   const { title, description, location, date } = fields;
 
   const handleFormFieldChange = (event) => {
@@ -59,7 +73,15 @@ export const EventForm = ({ fields, handleChange, onSubmit, headerTitle }) => {
           />
         </Field>
 
-        <Submit type="submit">Salvar</Submit>
+        <ButtonsContainer isEdit={isEdit}>
+          {isEdit && (
+            <DiscardButton onClick={() => setEdit(false)} type="button">
+              Descartar
+            </DiscardButton>
+          )}
+
+          <Submit type="submit">Salvar</Submit>
+        </ButtonsContainer>
       </Form>
     </Wrapper>
   );

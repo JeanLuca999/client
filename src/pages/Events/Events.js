@@ -1,7 +1,4 @@
-import { useState, useEffect } from "react";
-
-//HOOKS
-import { useForm } from "../../hooks";
+import { useState, useEffect, useCallback } from "react";
 
 // COMPONENTS
 import { EventForm } from "../../components/EventForm";
@@ -20,15 +17,20 @@ import {
 } from "../../services/events";
 
 export const Events = () => {
-  const [events, setEvents] = useState([]);
-
-  const [fields, handleChange, onSubmit] = useForm({
+  const DEFAULT_FIELDS = {
     title: "",
     description: "",
-    location: "",
     date: "",
+    location: "",
     owner_id: "",
-  });
+  };
+
+  const [events, setEvents] = useState([]);
+  const [fields, setFields] = useState(DEFAULT_FIELDS);
+
+  const handleChange = useCallback((name, value) => {
+    setFields((prev) => ({ ...prev, [name]: value }));
+  }, []);
 
   const fetchEvents = async () => {
     try {
@@ -45,6 +47,16 @@ export const Events = () => {
   const handleDeleteEvent = async (id) => {
     try {
       await deleteEvent(id);
+      await fetchEvents();
+      toast.success("Evento deletado com sucesso!");
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleUpdateEvent = async (id, data, setData) => {
+    try {
+      await updateEvent(id, data);
       await fetchEvents();
     } catch (e) {
       console.log(e);
@@ -67,15 +79,11 @@ export const Events = () => {
 
   const handleEventSubmit = async () => {
     try {
-      console.log(fields);
-      const data = JSON.stringify(fields);
+      const user = JSON.parse(localStorage.getItem("user"));
+      const data = { ...fields, owner_id: user.id };
       await createEvent(data);
       await fetchEvents();
-      handleChange("title", "");
-      handleChange("description", "");
-      handleChange("location", "");
-      handleChange("date", "");
-      handleChange("owner_id", "");
+
       toast.success("Evento criado com sucesso");
     } catch (e) {
       console.log(e);
@@ -83,7 +91,8 @@ export const Events = () => {
   };
 
   const handleSubmit = (event) => {
-    onSubmit(event, handleEventSubmit);
+    event.preventDefault();
+    handleEventSubmit();
   };
 
   useEffect(() => {
