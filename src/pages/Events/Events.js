@@ -8,7 +8,7 @@ import { CreateEvent } from "../../components/CreateEvent";
 import { Box } from "../../styles/generics";
 
 export const Events = () => {
-  const [fields, handleChange, onSubmit, validations] = useForm({
+  const [fields, handleChange, onSubmit] = useForm({
     title: "",
     description: "",
     location: "",
@@ -23,7 +23,6 @@ export const Events = () => {
           fields={fields}
           handleChange={handleChange}
           onSubmit={onSubmit}
-          validations={validations}
         />
       </Box>
 

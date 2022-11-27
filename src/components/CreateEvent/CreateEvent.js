@@ -1,14 +1,9 @@
 // STYLES
 
 import { Wrapper, Form } from "./styles";
-import { Anchor, Field, Input, Label, Submit, Error } from "../../styles/form";
+import { Field, Input, Label, Submit } from "../../styles/form";
 
-export const CreateEvent = ({
-  fields,
-  handleChange,
-  onSubmit,
-  validations,
-}) => {
+export const CreateEvent = ({ fields, handleChange, onSubmit }) => {
   const { title, description, location, date } = fields;
 
   const handleFormFieldChange = (event) => {
@@ -26,6 +21,7 @@ export const CreateEvent = ({
             name="title"
             value={title}
             onChange={handleFormFieldChange}
+            required
           />
         </Field>
 
@@ -36,6 +32,7 @@ export const CreateEvent = ({
             name="description"
             value={description}
             onChange={handleFormFieldChange}
+            required
           />
         </Field>
 
@@ -45,6 +42,7 @@ export const CreateEvent = ({
             type="text"
             name="location"
             value={location}
+            required
             onChange={handleFormFieldChange}
           />
         </Field>
@@ -55,6 +53,7 @@ export const CreateEvent = ({
             type="text"
             name="date"
             value={date}
+            required
             onChange={handleFormFieldChange}
           />
         </Field>
