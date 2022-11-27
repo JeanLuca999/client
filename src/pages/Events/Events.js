@@ -1,5 +1,5 @@
-import React from "react";
-
+// COMPONENTS
+import { CreateEvent } from "../../components/CreateEvent";
 export const Events = () => {
-  return <div></div>;
+  return <CreateEvent />;
 };
