@@ -1,3 +1,6 @@
+//COMPONENTS
+import { toast } from "react-toastify";
+
 import { createContext, useContext, useState } from "react";
 
 const Auth = createContext({});
@@ -15,6 +18,7 @@ export const AuthProvider = ({ children }) => {
   const handleLogout = () => {
     setUser({});
     localStorage.clear();
+    toast.success("Logout realizado com sucesso");
   };
 
   const value = {

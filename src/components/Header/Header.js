@@ -3,7 +3,6 @@ import { useAuth } from "../../context/auth";
 
 //COMPONENTS
 import { Outlet } from "react-router-dom";
-import { toast } from "react-toastify";
 
 //STYLES
 import { Nav, Ul, Li, Link, Image, Span, Exit } from "./styles";
@@ -18,7 +17,6 @@ export const Header = () => {
   const { handleLogout } = useAuth();
   const onLogout = () => {
     handleLogout();
-    toast.success("Logout realizado com sucesso");
   };
 
   return (
