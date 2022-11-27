@@ -5,14 +5,32 @@ import { Button } from "../../styles/form";
 
 //HOOKS
 import { useAuth } from "../../context/auth";
-
-//IMAGES
+import { getPostsByUserId } from "../../services/posts";
 
 //COMPONENTS
 
 export const Profile = () => {
   const { handleLogout } = useAuth();
   const { user } = useAuth();
+
+  const downloadUserPosts = async (id) => {
+    try {
+      const response = await getPostsByUserId(id);
+      if (response) {
+        const { data } = response;
+        const file = new File([JSON.stringify(data)], "posts.json", {
+          type: "application/json",
+        });
+
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(file);
+        link.download = "posts";
+        link.click();
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <>
@@ -26,7 +44,9 @@ export const Profile = () => {
 
         <Box margin="5rem auto" width="90%">
           <Button onClick={handleLogout}>sair</Button>
-          <Button onClick={null}>Baixar minhas postagens</Button>
+          <Button onClick={() => downloadUserPosts(user.id)}>
+            Baixar minhas postagens
+          </Button>
         </Box>
       </Box>
     </>
