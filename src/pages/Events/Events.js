@@ -2,10 +2,13 @@
 import { useForm } from "../../hooks";
 
 // COMPONENTS
-import { CreateEvent } from "../../components/CreateEvent";
+import { EventForm } from "../../components/EventForm";
 
 // STYLES
 import { Box } from "../../styles/generics";
+
+// SERVICES
+import { createEvent, getEvents, deleteEvent } from "../../services/events";
 
 export const Events = () => {
   const [fields, handleChange, onSubmit] = useForm({
@@ -19,10 +22,11 @@ export const Events = () => {
   return (
     <>
       <Box style={{ borderTop: "1px solid #838383", padding: "7rem 2rem" }}>
-        <CreateEvent
+        <EventForm
           fields={fields}
           handleChange={handleChange}
           onSubmit={onSubmit}
+          headerTitle="Criar Evento"
         />
       </Box>
 

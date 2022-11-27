@@ -1,1 +1,1 @@
-export { CreateEvent } from "./CreateEvent";
+export {CreateEvent} from './CreateEvent';
