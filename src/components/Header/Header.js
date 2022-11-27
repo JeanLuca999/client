@@ -5,13 +5,14 @@ import { useAuth } from "../../context/auth";
 import { Outlet } from "react-router-dom";
 
 //STYLES
-import { Nav, Ul, Li, Link, Image, Span, Exit } from "./styles";
+import { Nav, Ul, Li, Link, Image, Span, Exit, IconContainer } from "./styles";
 
 //IMAGES
 import edit from "../../assets/images/edit.svg";
 import home from "../../assets/images/home.svg";
 import profile from "../../assets/images/profile.svg";
 import logout from "../../assets/images/logout.svg";
+import { BiCalendarEvent } from "react-icons/bi";
 
 export const Header = () => {
   const { handleLogout } = useAuth();
@@ -26,9 +27,19 @@ export const Header = () => {
           <Li>
             <Link to="/home/posts">
               <Image src={edit} />
-              <Span>Postagens</Span>
+              <Span>Minhas Postagens</Span>
             </Link>
           </Li>
+
+          <Li>
+            <Link to="/home/events">
+              <IconContainer>
+                <BiCalendarEvent size={40} />
+              </IconContainer>
+              <Span>Eventos</Span>
+            </Link>
+          </Li>
+
           <Li>
             <Link to="/home/profile">
               <Image src={profile} />

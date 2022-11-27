@@ -59,3 +59,9 @@ export const Exit = styled.li`
   top: 50%;
   transform: translateY(-50%);
 `;
+
+export const IconContainer = styled.div`
+  svg {
+    fill: #838383;
+  }
+`;

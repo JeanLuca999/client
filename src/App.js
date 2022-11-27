@@ -12,6 +12,7 @@ import { ToastContainer } from "react-toastify";
 import { Posts } from "./pages/Posts";
 import { UserPosts } from "./pages/UserPosts/UserPosts";
 import { Profile } from "./pages/Profile";
+import { Events } from "./pages/Events/Events";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
               <Route index element={<Posts />} />
               <Route path="posts" element={<UserPosts />} />
               <Route path="profile" element={<Profile />} />
+              <Route path="events" element={<Events />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/register" replace />} />
